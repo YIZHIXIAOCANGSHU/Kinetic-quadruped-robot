@@ -110,11 +110,13 @@ class PinGo2Model:
 
     def __init__(self):
 
-        # Build robot (free-flyer)
-        robot = RobotWrapper.BuildFromURDF(
-            str(URDF_PATH),
-            package_dirs=[str(PACKAGE_DIRS)],
-            root_joint=pin.JointModelFreeFlyer()
+        # Build only kinematic model (skip collision/visual geometry for speed)
+        model = pin.Model()
+        pin.buildModelFromUrdf(str(URDF_PATH), pin.JointModelFreeFlyer(), model)
+        robot = RobotWrapper(
+            model=model,
+            collision_model=pin.GeometryModel(),
+            visual_model=pin.GeometryModel(),
         )
 
         # Core models
