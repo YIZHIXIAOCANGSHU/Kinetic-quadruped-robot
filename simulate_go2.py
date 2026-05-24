@@ -462,3 +462,6 @@ if __name__ == "__main__":
         print("\nFatal error before the MuJoCo viewer could be kept open:")
         traceback.print_exc()
         _pause_on_error_if_interactive()
+
+
+
