@@ -1,0 +1,7 @@
+numpy<2
+scipy
+matplotlib
+mujoco
+rerun-sdk
+casadi
+pytest
